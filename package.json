@@ -1,0 +1,16 @@
+{
+  "name": "performance-monitor-tool",
+  "version": "1.0.0",
+  "description": "性能监控工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "smallsun_229@foxmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3"
+  }
+}
