@@ -33,20 +33,25 @@ window.onload = () => {
         return overtimeResource;
     }
 
-    //发送一个ajax请求上报到服务器端
-    $.ajax({
-        url: '/abnormal',
-        type: 'POST',
-        data: {
-            domComplete: pMonitor.getDomComplete,
-            overtimeResource: pMonitor.getOvertimeResource(300)
-        },
-        success: (data) => {
-            console.log('ajax success');
-        },
-        error: (data) => {
-            console.log('ajax error');
-        }
-    })
+    if(window.requestIdleCallback) {
+        window.requestIdleCallback(() => {
+            //发送一个ajax请求上报到服务器端
+            $.ajax({
+                url: '/abnormal',
+                type: 'POST',
+                data: {
+                    domComplete: pMonitor.getDomComplete,
+                    overtimeResource: pMonitor.getOvertimeResource(100)
+                },
+                success: (data) => {
+                    console.log('ajax success');
+                },
+                error: (data) => {
+                    console.log('ajax error');
+                }
+            })
+        })
+    }
+    
     
 }
